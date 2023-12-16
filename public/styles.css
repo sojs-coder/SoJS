@@ -8,6 +8,10 @@ body {
 
 .timeline {
     white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
 }
 * {
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -21,7 +25,8 @@ body {
 
 }
 .event {
-    display: inline-block;
+    flex: 0 0 100vw; /* take full width of the screen*/
+    display: block;
     width: 100vw; /* Take the full width of the screen */
     height: 100vh; /* Take the full height of the screen */
     margin: 0;
@@ -61,19 +66,21 @@ body {
     opacity: 1; /* Show the events when they become visible */
 }
 .content{
-    padding: 30px;
-    display: block;
-    text-align: center;
-    
+    background-color: #000000aa;
+    padding: 40px;
+    width: 100%;
+    text-align: left;
+    /*display: flex;
+    flex-direction: column;*/
 }
 .content h2 {
-    font-size: 24px;
-    margin: 0;
+    font-size: 64px;
+
 }
 
 .content p {
-    font-size: 16px;
-    margin: 10px 0;
+    font-size: 40px;
+    word-break: break-word;
 }
 #prog{
     width: 0%;

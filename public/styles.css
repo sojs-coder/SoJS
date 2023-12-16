@@ -3,14 +3,19 @@ body {
     padding: 0;
     overflow-x: auto;
     overflow-y: hidden;
+    background-color: black;
 }
 
 .timeline {
     white-space: nowrap;
-    /* width: 2000px; Adjust the width as per your requirement */
 }
-
-
+* {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+*::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
 .hidden{
     animation: slideDown 0.5s ease-in-out;
 
@@ -20,12 +25,19 @@ body {
     width: 100vw; /* Take the full width of the screen */
     height: 100vh; /* Take the full height of the screen */
     margin: 0;
+    padding: 0;
+    margin-right: 10px;
     box-sizing: border-box;
     opacity: 0; /* Initially hide the events */
     transition: opacity 0.5s ease-in-out; /* Add a transition effect */
     background-position: center;
     color: #fff;
     position: relative;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
 }
 .event img{
     width: 100%;
@@ -33,6 +45,7 @@ body {
     object-fit: cover;
     position: absolute;
     z-index: -1;
+    opacity: 0.2;
 }
 
 .event.visible {
@@ -41,6 +54,9 @@ body {
 }
 .content{
     padding: 30px;
+    display: block;
+    text-align: center;
+    
 }
 .content h2 {
     font-size: 24px;
@@ -51,7 +67,15 @@ body {
     font-size: 16px;
     margin: 10px 0;
 }
-
+#prog{
+    width: 0%;
+    height: 15px;
+    background-color: dodgerblue;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 999;
+}
 @keyframes slideUp{
     0%{
         transform: translateY(100vh);

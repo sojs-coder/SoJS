@@ -47,7 +47,15 @@ body {
     z-index: -1;
     opacity: 0.2;
 }
-
+.tools span{
+    display: inline-block;
+    margin: 10px;
+    background-color: dodgerblue;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    min-width: 50px;
+}
 .event.visible {
     animation: slideUp 0.5s ease-in-out;
     opacity: 1; /* Show the events when they become visible */

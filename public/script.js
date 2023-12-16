@@ -4,119 +4,136 @@ const projects = [
         des:"2 chatbots were given access to the internet and the ability to talk to each other. The results were slightly terrifying",
         link:"https://replit.com/@sojs/Getting-ChatGPT-out-of-jail?v=1",
         image:"/imgs/chatgpt-out.gif",
-        time: "Apr 17, 2023"
+        time: "Apr 17, 2023",
+        tools: ["Node.js", "ChatGPT"]
     },
     {
         name:"AI Beats Blackjack",
         des:"An AI to play blackjack using a neural network. The results were pretty interesting",
         link:"https://replit.com/@sojs/AI-Beats-Blackjack?v=1",
         image:"/imgs/ai-blackjack.jpg",
-        time:"Aug 24, 2023"
+        time:"Aug 24, 2023",
+        tools: ["Node.js", "Tensorflow"]
     },
     {
         name:"Terminal Canvas",
         des:"A terminal based drawing program using node.js",
         link:"https://replit.com/@sojs/Terminal-Canvas?v=1",
         image:"/imgs/terminal-canvas.png",
-        time:"Mar 9, 2023"
+        time:"Mar 9, 2023",
+        tools: ["Node.js"]
     },
     {
         name:"Basic Snake",
         des:"A basic snake game",
         link:"https://replit.com/@sojs/Snake?v=1",
         image:"/imgs/basic_snake.png",
-        time: "Feb 27, 2023"
+        time: "Feb 27, 2023",
+        tools: ["HTML", "CSS", "JS"]
     },
     {
         name: "Simon",
         des: "A Simon game",
         link: "https://replit.com/@sojs/Simon?v=1",
         image: "/imgs/simon.png",
-        time: "Dec 3, 2022"
+        time: "Dec 3, 2022",
+        tools: ["HTML", "CSS", "JS"]
     },
     {
         name: "The So Fun Game Of Killing Things That Are Trying To Kill You",
         des:"Read the title.",
         link:"https://replit.com/@sojs/The-so-fun-game-of-killing-things-that-try-to-kill-you?v=1",
         image:"/imgs/so_fun_game.png",
-        time: "Apr 2, 2022"
+        time: "Apr 2, 2022",
+        tools: ["HTML","CSS","JS","Construct3"]
     },
     {
         name: "Space Wars",
         des:"Defend yourself from swarms of space invaders",
         link: "https://replit.com/@sojs/Space-Wars?v=1",
         image: "/imgs/space-wars.png",
-        time:"Nov 18, 2022"
+        time:"Nov 18, 2022",
+        tools: ["HTML","CSS","JS","Construct3"]
     },
     {
         name: "SoDB",
         des:"A filesystem based database with encryption and compression support",
         link: "https://www.npmjs.com/package/@sojs_coder/sodb",
         image: "/imgs/sodb.png",
-        time: "Feb 7, 2023"
+        time: "Feb 7, 2023",
+        tools: ["Node.js"]
     },
     {
         name: "SoIdeas",
         des: "A bunch of ideas to get you inspired, sorted on diffuculty, and tracking how many people complete each project",
         link: "https://replit.com/@sojs/SoIdeas?v=1",
         image: "/imgs/soideas.png",
-        time: "Feb 22, 2023"
+        time: "Feb 22, 2023",
+        tools: ["Node.js","replit.css","HTML","CSS","JS","Express","SoDB"]
     },
     {
         name: "SoAuth",
         des: "The world's simplest OAuth system... zero configuration required, works serverless (not in prod)",
         link: "https://replit.com/@sojs/SoAuth?v=1",
         image: "/imgs/soauth.png",
-        time: "Dec 29, 2022"
+        time: "Dec 29, 2022",
+        tools: ["Node.js","HTML","CSS","JS","Express","AWS DynamoDB"]
     },
     {
         name: "Gems",
         des: 'A website to share other website "gems". Gems are voted on by the community, and if the gem recieves too much negative feedback, it is removed from the site',
         link: "https://replit.com/@sojs/gems?v=1",
         image: "/imgs/gems.png",
-        time: "Dec 2, 2022"
+        time: "Dec 2, 2022",
+        tools: ["Node.js","HTML","CSS","JS","Express","SoDB"]
     },
     {
         name: "Code Runner",
         des: "A website to annotate and run code in the browser. (What I believe was the inspiration for replit's comment system)",
         link: "https://replit.com/@sojs/Code-Runner?v=1",
         image: "/imgs/code-runner.png",
-        time: "Aug 24, 2020"
+        time: "Aug 24, 2020",
+        tools: ["HTML","CSS","JS"]
     },
     {
         name: "Help!",
         des: "A website to where people help people with their proggaming problems, integrated with replit",
         link: "https://replit.com/@sojs/Help?v=1",
         image: "/imgs/help.png",
-        time: "May 11, 2021"
+        time: "May 11, 2021",
+        tools: ["Node.js","HTML","CSS","JS","Express","Firebase"]
     },
     {
         name: "Live MD Parser (LMDP)",
         des: "A markdown parser that updates in real time, so you can see what your markdown looks like as you type it",
         link: "https://replit.com/@sojs/MD-live-parser-and-editor?v=1",
         image: "/imgs/md-live-parser.png",
-        time: "May 21, 2021"
+        time: "May 21, 2021",
+        tools: ["HTML","CSS","JS"]
     },
     {
         name: "Thread Mover Bot",
         des: "A discord bot that moves messages from one channel to a thread",
         link: "https://top.gg/bot/1110706043744432128",
         time: "May 12, 2023",
-        image: "/imgs/tmb.png"
+        image: "/imgs/tmb.png",
+        tools: ["Python","Discord.py"]
     },
     {
         name: "MultiSnake V2",
         des: "Multiplayer snake game, V2",
         link: "https://multisnake.xyz/",
         image: "/imgs/multisnake-v2.png",
-        time: "Dec 15, 2023"
+        time: "Dec 15, 2023",
+        tools: ["Node.js","HTML","CSS","JS","Express","Socket.io","AWS DynamoDB","EC2","Sqlite"]
     },
     {
         name: "MultiSnake Tournaments",
         des: "MultiSnake Tournaments.... win money by playing multisnake",
         link: "https://tournament.multisnake.xyz/",
         image: "/imgs/multisnake-tournaments.png",
-        time: "Dec 15, 2023"
+        time: "Dec 15, 2023",
+        tools: ["Node.js","HTML","CSS","JS","Express","Socket.io","AWS DynamoDB","EC2","Sqlite", "Supabase", "Stripe"]
     }
 
 ]
@@ -147,6 +164,15 @@ function buildEvents() {
                 <p>${project.des}</p>
             </div>
         `
+        // add list of tools
+        const tools = document.createElement("div")
+        tools.classList.add("tools")
+        project.tools.forEach(tool => {
+            const toolElement = document.createElement("span")
+            toolElement.innerHTML = tool
+            tools.appendChild(toolElement)
+        })
+        event.querySelector(".content").appendChild(tools)
         document.querySelector(".timeline").appendChild(event)
     })
 

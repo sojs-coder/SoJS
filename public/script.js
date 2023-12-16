@@ -138,7 +138,7 @@ const projects = [
 
 ]
 
-
+window.scrollTo(0,0)
 // sort the projects by data, newest first
 function sortProjects() {
     // format the times into timestamps
@@ -150,8 +150,8 @@ function sortProjects() {
 // build the events on the timeline
 function buildEvents() {
     projects.forEach((project,i) => {
-        const event = document.createElement("a");
-        event.href = project.link;
+        const event = document.createElement("div");
+        event.setAttribute("data-link",project.link) ==
         event.classList.add("event")
         if (i !== 0) event.classList.add("hidden");
         if (i == 0) event.classList.add("visible")
@@ -161,6 +161,7 @@ function buildEvents() {
             </div>
             <div class="content">
                 <h2>${project.name}</h2>
+                <p><i>${new Date(project.time).toDateString()}</i></p>
                 <p>${project.des}</p>
             </div>
         `
@@ -178,7 +179,9 @@ function buildEvents() {
 
 }
 sortProjects()
-buildEvents()
+buildEvents();
+var currentEvent = 0;
+
 // Function to check if an element is in the viewport
 function isElementInViewport(element) {
     var rect = element.getBoundingClientRect();
@@ -209,9 +212,152 @@ function getScrollPercentage() {
     var scrollPercentageX = (scrollPositionX / totalWidth) * 100;
     return scrollPercentageX;
 }
+document.querySelector(".prog-parent").addEventListener("click", function(e) {
+    var scrollPercentageX = getScrollPercentage();
+    var scrollPositionX = window.pageXOffset || document.documentElement.scrollLeft;
+    var totalWidth = document.documentElement.scrollWidth - document.documentElement.clientWidth;
+    var scrollX = (e.clientX / window.innerWidth) * totalWidth;
+    window.scrollTo(scrollX, window.pageYOffset);
+});
+// add dragging to the progress bar
+var mouseDown = false;
+var progDown = false;
+var progScrollX = 0;
+var progStartX = 0;
+var startX = 0;
+var scrollX = 0;
+document.querySelector(".timeline").addEventListener("mousedown", function(e) {
+    mouseDown = true;
+    startX = e.clientX;
+    scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+    // change to drag cursor
+    document.querySelector(".timeline").style.cursor = "move";
+});
+document.querySelector(".timeline").addEventListener("mouseup", function(e) {
+    mouseDown = false;
+    document.querySelector(".timeline").style.cursor = "pointer";
+    console.log(document.querySelector(".timeline").style.cursor);
+});
+document.querySelector(".prog-parent").addEventListener("mousedown", function(e) {
+    progDown = true;
+    progStartX = e.clientX;
+    progScrollX = window.pageXOffset || document.documentElement.scrollLeft;
+    document.querySelector(".prog-parent").style.cursor = "move";
+});
+document.querySelector(".prog-parent").addEventListener("mouseup", function(e) {
+    progDown = false;
+    document.querySelector(".prog-parent").style.cursor = "pointer";
+})
+document.querySelector("body").addEventListener("mousemove", function(e) {
 
+    if (mouseDown) {
+        console.log("hello")
+        var diff = e.clientX - startX;
+        window.scrollTo(scrollX - diff, window.pageYOffset);
+    }
+    if(progDown) {
+        var diff = e.clientX - progStartX;
+        var totalWidth = document.documentElement.scrollWidth - document.documentElement.clientWidth;
+        window.scrollTo((e.clientX / window.innerWidth) * totalWidth, window.pageYOffset);
+    }
+    // update the current event
+    var events = document.querySelectorAll('.event');
+    var closest = 0;
+    var closestDiff = 100000;
+    events.forEach(function(event,i) {
+        var diff = Math.abs(event.offsetLeft - window.pageXOffset);
+        if (diff < closestDiff) {
+            closest = event.offsetLeft;
+            closestDiff = diff;
+            currentEvent = i;
+        }
+    });
+    // scroll to the current
+    var events = document.querySelectorAll('.event');
+    window.scroll({
+        top: 0,
+        left: events[currentEvent].offsetLeft,
+        behavior: 'smooth',
+        duration: 5000
+    })
+});
+// add arrow keys
+document.addEventListener("keydown", function(e) {
+    if (e.key == "ArrowRight") {
+        // scroll to the next event
+        var events = document.querySelectorAll('.event');
+        var nextEvent = events[currentEvent+1];
+        if (nextEvent) {
+            window.scroll({
+                top: 0,
+                left: nextEvent.offsetLeft,
+                behavior: 'smooth',
+                duration: 5000
+            })
+            currentEvent++;
+        }
+        e.preventDefault();
+        return false;
+    }
+    if (e.key == "ArrowLeft") {
+        // scroll to the next event
+        var events = document.querySelectorAll('.event');
+        var prevEvent = events[currentEvent-1];
+        if (prevEvent) {
+            window.scroll({
+                top: 0,
+                left: prevEvent.offsetLeft,
+                behavior: 'smooth',
+                duration: 5000
+            })
+            currentEvent--;
+        }
+        e.preventDefault();
+        return false;
+    }
+
+
+});
 // Attach scroll event listener
 window.addEventListener('scroll', handleScroll);
+
+var scrolling = false
 window.addEventListener('wheel', function(e) {
-    window.scrollBy(e.deltaY, -e.deltaX, {behavior: 'smooth'});
+    //window.scrollBy(e.deltaY, -e.deltaX, {behavior: 'smooth'});
+    // dont actually scroll, instead snap to next event
+    var events = document.querySelectorAll('.event');
+    var nextEvent = events[currentEvent+1];
+    var prevEvent = events[currentEvent-1];
+    //if(scrolling) return;
+    if (e.deltaY > 0) {
+        // scroll down
+        if (nextEvent) {
+            window.scroll({
+                top: 0,
+                left: nextEvent.offsetLeft,
+                behavior: 'smooth',
+                duration: 5000
+            })
+            currentEvent++;
+        }
+    } else {
+        // scroll up
+        if (prevEvent) {
+            // make the scroll take 500ms
+            window.scroll({
+                top: 0,
+                left: prevEvent.offsetLeft,
+                behavior: 'smooth',
+                duration: 5000
+            })
+
+            currentEvent--;
+        }
+    }
+    scrolling = true;
+    if(scrolling) {
+        setTimeout(function() {
+            scrolling = false;
+        }, 5000)
+    }
 }, {passive: false});

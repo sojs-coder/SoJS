@@ -7,11 +7,18 @@ body {
 }
 
 .timeline {
-    white-space: nowrap;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
+    cursor: pointer;
+}
+/* disable selecting content */
+* {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 * {
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -26,13 +33,10 @@ body {
 }
 .event {
     flex: 0 0 100vw; /* take full width of the screen*/
-    display: block;
     width: 100vw; /* Take the full width of the screen */
     height: 100vh; /* Take the full height of the screen */
     margin: 0;
     padding: 0;
-    margin-right: 10px;
-    box-sizing: border-box;
     opacity: 0; /* Initially hide the events */
     transition: opacity 0.5s ease-in-out; /* Add a transition effect */
     background-position: center;
@@ -40,9 +44,11 @@ body {
     position: relative;
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
     /* display: flex;
     align-items: center;
     justify-content: center; */
+    border-right: 1px solid white;
 }
 .event img{
     width: 100%;
@@ -60,18 +66,18 @@ body {
     border-radius: 5px;
     color: white;
     min-width: 50px;
+    text-align: center;
+    font-weight: bold;
 }
 .event.visible {
     animation: slideUp 0.5s ease-in-out;
     opacity: 1; /* Show the events when they become visible */
 }
 .content{
-    background-color: #000000aa;
     padding: 40px;
-    width: 100%;
+    width: 50%;
     text-align: left;
-    /*display: flex;
-    flex-direction: column;*/
+    overflow-wrap: break-word;
 }
 .content h2 {
     font-size: 64px;
@@ -82,14 +88,20 @@ body {
     font-size: 40px;
     word-break: break-word;
 }
-#prog{
-    width: 0%;
-    height: 15px;
-    background-color: dodgerblue;
+.prog-parent{
+    width: 100%;
     position: fixed;
     top:0;
     left: 0;
     z-index: 999;
+    height: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.104);
+    cursor: pointer;
+}
+#prog{
+    width: 0%;
+    height: 15px;
+    background-color: dodgerblue;
 }
 @keyframes slideUp{
     0%{

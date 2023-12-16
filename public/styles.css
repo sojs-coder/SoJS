@@ -27,9 +27,12 @@ body {
 *::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
-.hidden{
+.event.hidden{
     animation: slideDown 0.5s ease-in-out;
-
+}
+.event.visible {
+    animation: slideUp 0.5s ease-in-out;
+    opacity: 1; /* Show the events when they become visible */
 }
 .event {
     flex: 0 0 100vw; /* take full width of the screen*/
@@ -69,10 +72,7 @@ body {
     text-align: center;
     font-weight: bold;
 }
-.event.visible {
-    animation: slideUp 0.5s ease-in-out;
-    opacity: 1; /* Show the events when they become visible */
-}
+
 .content{
     padding: 40px;
     width: 50%;

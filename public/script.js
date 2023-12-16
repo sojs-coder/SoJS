@@ -152,7 +152,8 @@ function buildEvents() {
     projects.forEach((project,i) => {
         const event = document.createElement("div");
         event.setAttribute("data-link",project.link) ==
-        event.classList.add("event")
+        event.classList.add("event");
+        event.id = i;
         if (i !== 0) event.classList.add("hidden");
         if (i == 0) event.classList.add("visible")
         event.innerHTML = `
@@ -218,6 +219,9 @@ document.querySelector(".prog-parent").addEventListener("click", function(e) {
     var totalWidth = document.documentElement.scrollWidth - document.documentElement.clientWidth;
     var scrollX = (e.clientX / window.innerWidth) * totalWidth;
     window.scrollTo(scrollX, window.pageYOffset);
+    updateClosestEvent();
+    scrollToEvent()
+    
 });
 // add dragging to the progress bar
 var mouseDown = false;
@@ -236,7 +240,6 @@ document.querySelector(".timeline").addEventListener("mousedown", function(e) {
 document.querySelector(".timeline").addEventListener("mouseup", function(e) {
     mouseDown = false;
     document.querySelector(".timeline").style.cursor = "pointer";
-    console.log(document.querySelector(".timeline").style.cursor);
 });
 document.querySelector(".prog-parent").addEventListener("mousedown", function(e) {
     progDown = true;
@@ -251,35 +254,24 @@ document.querySelector(".prog-parent").addEventListener("mouseup", function(e) {
 document.querySelector("body").addEventListener("mousemove", function(e) {
 
     if (mouseDown) {
-        console.log("hello")
         var diff = e.clientX - startX;
         window.scrollTo(scrollX - diff, window.pageYOffset);
+            // update the current event
+        updateClosestEvent();
+        // scroll to the current
+        scrollToEvent()
     }
     if(progDown) {
         var diff = e.clientX - progStartX;
         var totalWidth = document.documentElement.scrollWidth - document.documentElement.clientWidth;
         window.scrollTo((e.clientX / window.innerWidth) * totalWidth, window.pageYOffset);
+            // update the current event
+        updateClosestEvent();
+        // scroll to the current
+        scrollToEvent()
     }
-    // update the current event
-    var events = document.querySelectorAll('.event');
-    var closest = 0;
-    var closestDiff = 100000;
-    events.forEach(function(event,i) {
-        var diff = Math.abs(event.offsetLeft - window.pageXOffset);
-        if (diff < closestDiff) {
-            closest = event.offsetLeft;
-            closestDiff = diff;
-            currentEvent = i;
-        }
-    });
-    // scroll to the current
-    var events = document.querySelectorAll('.event');
-    window.scroll({
-        top: 0,
-        left: events[currentEvent].offsetLeft,
-        behavior: 'smooth',
-        duration: 5000
-    })
+    return;
+
 });
 // add arrow keys
 document.addEventListener("keydown", function(e) {
@@ -288,77 +280,90 @@ document.addEventListener("keydown", function(e) {
         var events = document.querySelectorAll('.event');
         var nextEvent = events[currentEvent+1];
         if (nextEvent) {
-            window.scroll({
-                top: 0,
-                left: nextEvent.offsetLeft,
-                behavior: 'smooth',
-                duration: 5000
-            })
             currentEvent++;
         }
         e.preventDefault();
-        return false;
     }
     if (e.key == "ArrowLeft") {
         // scroll to the next event
         var events = document.querySelectorAll('.event');
         var prevEvent = events[currentEvent-1];
         if (prevEvent) {
-            window.scroll({
-                top: 0,
-                left: prevEvent.offsetLeft,
-                behavior: 'smooth',
-                duration: 5000
-            })
             currentEvent--;
         }
         e.preventDefault();
-        return false;
-    }
 
+    }
+    // up and down keys too
+    if (e.key == "ArrowUp") {
+        // scroll to the next event
+        var events = document.querySelectorAll('.event');
+        var prevEvent = events[currentEvent-1];
+        if (prevEvent) {
+            currentEvent--;
+        }
+        e.preventDefault();
+    }
+    if (e.key == "ArrowDown") {
+        // scroll to the next event
+        var events = document.querySelectorAll('.event');
+        var nextEvent = events[currentEvent+1];
+        if (nextEvent) {
+            currentEvent++;
+        }
+        e.preventDefault();
+    }
+    scrollToEvent()
 
 });
 // Attach scroll event listener
 window.addEventListener('scroll', handleScroll);
 
-var scrolling = false
 window.addEventListener('wheel', function(e) {
-    //window.scrollBy(e.deltaY, -e.deltaX, {behavior: 'smooth'});
     // dont actually scroll, instead snap to next event
     var events = document.querySelectorAll('.event');
     var nextEvent = events[currentEvent+1];
     var prevEvent = events[currentEvent-1];
-    
-    if (e.deltaY > 0) {
+     if (e.deltaY > 0) {
         // scroll down
         if (nextEvent) {
-            window.scroll({
-                top: 0,
-                left: nextEvent.offsetLeft,
-                behavior: 'smooth',
-                duration: 5000
-            })
-            if(scrolling) return;
             currentEvent++;
+
         }
     } else {
         // scroll up
         if (prevEvent) {
-            // make the scroll take 500ms
-            window.scroll({
-                top: 0,
-                left: prevEvent.offsetLeft,
-                behavior: 'smooth',
-                duration: 5000
-            })
-            if(scrolling) return;
             currentEvent--;
+ 
         }
     }
-    scrolling = true;
-    if(scrolling) {
-        setTimeout(function() {
-            scrolling = false;
-        }, 500)
-    }
+    scrollToEvent()
+    e.preventDefault();
+    return false;
 }, {passive: false});
+
+function scrollToEvent(){
+    console.log(currentEvent)
+    var events = document.querySelectorAll('.event');
+    currentEvent = Math.min(Math.max(currentEvent,0),events.length-1)
+    window.scroll({
+        top: 0,
+        left: events[currentEvent].offsetLeft,
+        behavior: 'smooth',
+        duration: 5000
+    });
+    currentEvent = Math.min(Math.max(currentEvent,0),events.length-1);
+}
+function updateClosestEvent(){
+    var events = document.querySelectorAll('.event');
+    var closest = 0;
+    var closestDiff = Infinity;
+    events.forEach(function(event,i) {
+        var diff = Math.abs(event.offsetLeft - window.pageXOffset);
+        if (diff < closestDiff) {
+            closest = event.offsetLeft;
+            closestDiff = diff;
+            currentEvent = i;
+        }
+    });
+}

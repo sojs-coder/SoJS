@@ -328,7 +328,7 @@ window.addEventListener('wheel', function(e) {
     var events = document.querySelectorAll('.event');
     var nextEvent = events[currentEvent+1];
     var prevEvent = events[currentEvent-1];
-    //if(scrolling) return;
+    
     if (e.deltaY > 0) {
         // scroll down
         if (nextEvent) {
@@ -338,6 +338,7 @@ window.addEventListener('wheel', function(e) {
                 behavior: 'smooth',
                 duration: 5000
             })
+            if(scrolling) return;
             currentEvent++;
         }
     } else {
@@ -350,7 +351,7 @@ window.addEventListener('wheel', function(e) {
                 behavior: 'smooth',
                 duration: 5000
             })
-
+            if(scrolling) return;
             currentEvent--;
         }
     }
@@ -358,6 +359,6 @@ window.addEventListener('wheel', function(e) {
     if(scrolling) {
         setTimeout(function() {
             scrolling = false;
-        }, 5000)
+        }, 500)
     }
 }, {passive: false});

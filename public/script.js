@@ -3,137 +3,137 @@ const projects = [
         name:"Breaking ChatGPT out of jail",
         des:"2 chatbots were given access to the internet and the ability to talk to each other. The results were slightly terrifying",
         link:"https://replit.com/@sojs/Getting-ChatGPT-out-of-jail?v=1",
-        image:"/imgs/chatgpt-out.gif",
+        image:"public/imgs/chatgpt-out.gif",
         time: "Apr 17, 2023",
-        tools: ["Node.js", "ChatGPT"]
+        tools: ['<i class="fa-brands fa-node-js"></i>', "ChatGPT"]
     },
     {
         name:"AI Beats Blackjack",
         des:"An AI to play blackjack using a neural network. The results were pretty interesting",
         link:"https://replit.com/@sojs/AI-Beats-Blackjack?v=1",
-        image:"/imgs/ai-blackjack.jpg",
+        image:"public/imgs/ai-blackjack.jpg",
         time:"Aug 24, 2023",
-        tools: ["Node.js", "Tensorflow"]
+        tools: ['<i class="fa-brands fa-node-js"></i>', "Tensorflow"]
     },
     {
         name:"Terminal Canvas",
         des:"A terminal based drawing program using node.js",
         link:"https://replit.com/@sojs/Terminal-Canvas?v=1",
-        image:"/imgs/terminal-canvas.png",
+        image:"public/imgs/terminal-canvas.png",
         time:"Mar 9, 2023",
-        tools: ["Node.js"]
+        tools: ['<i class="fa-brands fa-node-js"></i>']
     },
     {
         name:"Basic Snake",
         des:"A basic snake game",
         link:"https://replit.com/@sojs/Snake?v=1",
-        image:"/imgs/basic_snake.png",
+        image:"public/imgs/basic_snake.png",
         time: "Feb 27, 2023",
-        tools: ["HTML", "CSS", "JS"]
+        tools: ['<i class="fa-brands fa-html5"></i>', '<i class="fa-brands fa-css3"></i>', '<i class="fa-brands fa-square-js"></i>']
     },
     {
         name: "Simon",
         des: "A Simon game",
         link: "https://replit.com/@sojs/Simon?v=1",
-        image: "/imgs/simon.png",
+        image: "public/imgs/simon.png",
         time: "Dec 3, 2022",
-        tools: ["HTML", "CSS", "JS"]
+        tools: ['<i class="fa-brands fa-html5"></i>', '<i class="fa-brands fa-css3"></i>', '<i class="fa-brands fa-square-js"></i>']
     },
     {
         name: "The So Fun Game Of Killing Things That Are Trying To Kill You",
         des:"Read the title.",
         link:"https://replit.com/@sojs/The-so-fun-game-of-killing-things-that-try-to-kill-you?v=1",
-        image:"/imgs/so_fun_game.png",
+        image:"public/imgs/so_fun_game.png",
         time: "Apr 2, 2022",
-        tools: ["HTML","CSS","JS","Construct3"]
+        tools: ['<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Construct3"]
     },
     {
         name: "Space Wars",
         des:"Defend yourself from swarms of space invaders",
         link: "https://replit.com/@sojs/Space-Wars?v=1",
-        image: "/imgs/space-wars.png",
+        image: "public/imgs/space-wars.png",
         time:"Nov 18, 2022",
-        tools: ["HTML","CSS","JS","Construct3"]
+        tools: ['<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Construct3"]
     },
     {
         name: "SoDB",
         des:"A filesystem based database with encryption and compression support",
         link: "https://www.npmjs.com/package/@sojs_coder/sodb",
-        image: "/imgs/sodb.png",
+        image: "public/imgs/sodb.png",
         time: "Feb 7, 2023",
-        tools: ["Node.js"]
+        tools: ['<i class="fa-brands fa-node-js"></i>']
     },
     {
         name: "SoIdeas",
         des: "A bunch of ideas to get you inspired, sorted on diffuculty, and tracking how many people complete each project",
         link: "https://replit.com/@sojs/SoIdeas?v=1",
-        image: "/imgs/soideas.png",
+        image: "public/imgs/soideas.png",
         time: "Feb 22, 2023",
-        tools: ["Node.js","replit.css","HTML","CSS","JS","Express","SoDB"]
+        tools: ['<i class="fa-brands fa-node-js"></i>',"replit.css",'<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Express","SoDB"]
     },
     {
         name: "SoAuth",
         des: "The world's simplest OAuth system... zero configuration required, works serverless (not in prod)",
         link: "https://replit.com/@sojs/SoAuth?v=1",
-        image: "/imgs/soauth.png",
+        image: "public/imgs/soauth.png",
         time: "Dec 29, 2022",
-        tools: ["Node.js","HTML","CSS","JS","Express","AWS DynamoDB"]
+        tools: ['<i class="fa-brands fa-node-js"></i>','<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Express","<i class='fa-brands fa-aws'></i>"]
     },
     {
         name: "Gems",
         des: 'A website to share other website "gems". Gems are voted on by the community, and if the gem recieves too much negative feedback, it is removed from the site',
         link: "https://replit.com/@sojs/gems?v=1",
-        image: "/imgs/gems.png",
+        image: "public/imgs/gems.png",
         time: "Dec 2, 2022",
-        tools: ["Node.js","HTML","CSS","JS","Express","SoDB"]
+        tools: ['<i class="fa-brands fa-node-js"></i>','<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Express","SoDB"]
     },
     {
         name: "Code Runner",
         des: "A website to annotate and run code in the browser. (What I believe was the inspiration for replit's comment system)",
         link: "https://replit.com/@sojs/Code-Runner?v=1",
-        image: "/imgs/code-runner.png",
+        image: "public/imgs/code-runner.png",
         time: "Aug 24, 2020",
-        tools: ["HTML","CSS","JS"]
+        tools: ['<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>']
     },
     {
         name: "Help!",
         des: "A website to where people help people with their proggaming problems, integrated with replit",
         link: "https://replit.com/@sojs/Help?v=1",
-        image: "/imgs/help.png",
+        image: "public/imgs/help.png",
         time: "May 11, 2021",
-        tools: ["Node.js","HTML","CSS","JS","Express","Firebase"]
+        tools: ['<i class="fa-brands fa-node-js"></i>','<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Express","Firebase"]
     },
     {
         name: "Live MD Parser (LMDP)",
         des: "A markdown parser that updates in real time, so you can see what your markdown looks like as you type it",
         link: "https://replit.com/@sojs/MD-live-parser-and-editor?v=1",
-        image: "/imgs/md-live-parser.png",
+        image: "public/imgs/md-live-parser.png",
         time: "May 21, 2021",
-        tools: ["HTML","CSS","JS"]
+        tools: ['<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>']
     },
     {
         name: "Thread Mover Bot",
         des: "A discord bot that moves messages from one channel to a thread",
         link: "https://top.gg/bot/1110706043744432128",
         time: "May 12, 2023",
-        image: "/imgs/tmb.png",
-        tools: ["Python","Discord.py"]
+        image: "public/imgs/tmb.png",
+        tools: ['<i class="fa-brands fa-python"></i>',"Discord.py"]
     },
     {
         name: "MultiSnake V2",
         des: "Multiplayer snake game, V2",
         link: "https://multisnake.xyz/",
-        image: "/imgs/multisnake-v2.png",
+        image: "public/imgs/multisnake-v2.png",
         time: "Dec 15, 2023",
-        tools: ["Node.js","HTML","CSS","JS","Express","Socket.io","AWS DynamoDB","EC2","Sqlite"]
+        tools: ['<i class="fa-brands fa-node-js"></i>','<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Express","Socket.io",'<i class="fa-brands fa-aws"></i>',"Sqlite"]
     },
     {
         name: "MultiSnake Tournaments",
         des: "MultiSnake Tournaments.... win money by playing multisnake",
         link: "https://tournament.multisnake.xyz/",
-        image: "/imgs/multisnake-tournaments.png",
+        image: "public/imgs/multisnake-tournaments.png",
         time: "Dec 15, 2023",
-        tools: ["Node.js","HTML","CSS","JS","Express","Socket.io","AWS DynamoDB","EC2","Sqlite", "Supabase", "Stripe"]
+        tools: ['<i class="fa-brands fa-node-js"></i>','<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Express","Socket.io","<i class='fa-brands fa-aws'></i>","Sqlite", "Supabase", '<i class="fa-brands fa-stripe"></i>']
     }
 
 ]
@@ -154,8 +154,7 @@ function buildEvents() {
         event.setAttribute("data-link",project.link) ==
         event.classList.add("event");
         event.id = i;
-        if (i !== 0) event.classList.add("hidden");
-        if (i == 0) event.classList.add("visible")
+        event.classList.add("hidden");
         event.innerHTML = `
             <div class="event-image">
                 <img src="${project.image}" alt="">
@@ -343,7 +342,6 @@ window.addEventListener('wheel', function(e) {
 }, {passive: false});
 
 function scrollToEvent(){
-    console.log(currentEvent)
     var events = document.querySelectorAll('.event');
     currentEvent = Math.min(Math.max(currentEvent,0),events.length-1)
     window.scroll({

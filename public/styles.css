@@ -13,6 +13,9 @@ body {
     justify-content: space-between;
     cursor: pointer;
 }
+.fa{
+    color: dodgerblue;
+}
 /* disable selecting content */
 * {
     -webkit-user-select: none; /* Safari */
@@ -61,16 +64,21 @@ body {
     z-index: -1;
     opacity: 0.2;
 }
+a{
+    color: dodgerblue;
+    text-decoration: none;
+}
 .tools span{
     display: inline-block;
     margin: 10px;
     background-color: dodgerblue;
-    padding: 5px;
     border-radius: 5px;
     color: white;
-    min-width: 50px;
+    padding: 5px;
+    font-size: 20px;
     text-align: center;
     font-weight: bold;
+    min-width: 50px;
 }
 
 .content{

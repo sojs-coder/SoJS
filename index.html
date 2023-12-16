@@ -2,103 +2,40 @@
 <html>
 <head>
     <title>Timeline Page</title>
+    <link rel="stylesheet" href="/styles.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: auto;
-        }
-        
-        .timeline {
-            white-space: nowrap;
-            width: 2000px; /* Adjust the width as per your requirement */
-        }
-        
-        .event {
-            display: inline-block;
-            width: 100vw; /* Take the full width of the screen */
-            height: 100vh; /* Take the full height of the screen */
-            background-color: #000000;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            opacity: 0; /* Initially hide the events */
-            transition: opacity 0.5s ease-in-out; /* Add a transition effect */
-            background-position: center;
-            color: #fff;
-        }
-        .event img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        
-        .event.visible {
-            opacity: 1; /* Show the events when they become visible */
-        }
-        
-        .event h2 {
-            font-size: 24px;
-            margin: 0;
-        }
-        
-        .event p {
-            font-size: 16px;
-            margin: 10px 0;
-        }
     </style>
 </head>
 <body>
     <div class="timeline">
         <div class="event">
-            <h2>Event 1</h2>
-            <p>Description of Event 1</p>
             <img src = "https://th.bing.com/th/id/R.b0941ae049cfe1242b875ee0ea722236?rik=TmhTt6vbVP7Rsg&riu=http%3a%2f%2fwww.lionleaf.com%2fwp-content%2fuploads%2f2014%2f11%2f1415275_22821821.jpg&ehk=7bK0H1iqq%2fkS48m0bbON6BfPoegjSZFfXu%2bC3ztcrvI%3d&risl=&pid=ImgRaw&r=0"  />
+
+            <div class = "content">
+                <h2>Event 1</h2>
+                <p>Description of Event 1</p>
+            </div>
         </div>
         <div class="event">
-            <h2>Event 2</h2>
-            <p>Description of Event 2</p>
             <img src = "https://th.bing.com/th/id/R.b0941ae049cfe1242b875ee0ea722236?rik=TmhTt6vbVP7Rsg&riu=http%3a%2f%2fwww.lionleaf.com%2fwp-content%2fuploads%2f2014%2f11%2f1415275_22821821.jpg&ehk=7bK0H1iqq%2fkS48m0bbON6BfPoegjSZFfXu%2bC3ztcrvI%3d&risl=&pid=ImgRaw&r=0" />
+
+            <div class = "content">
+                <h2>Event 2</h2>
+                <p>Description of Event 2</p>
+            </div>
         </div>
         <div class="event">
-            <h2>Event 3</h2>
-            <p>Description of Event 3</p>
             <img src = "https://th.bing.com/th/id/R.b0941ae049cfe1242b875ee0ea722236?rik=TmhTt6vbVP7Rsg&riu=http%3a%2f%2fwww.lionleaf.com%2fwp-content%2fuploads%2f2014%2f11%2f1415275_22821821.jpg&ehk=7bK0H1iqq%2fkS48m0bbON6BfPoegjSZFfXu%2bC3ztcrvI%3d&risl=&pid=ImgRaw&r=0"  />
+
+            <div class = "content">
+                <h2>Event 3</h2>
+                <p>Description of Event 3</p>
+            </div>
         </div>
-        <!-- Add more events as needed -->
     </div>
 
-    <script>
-        // Function to check if an element is in the viewport
-        function isElementInViewport(element) {
-            var rect = element.getBoundingClientRect();
-            return (
-                rect.left <= window.innerWidth/4 ||
-                rect.right <= ((window.innerWidth*3)/4 || (document.documentElement.clientWidth*3)/4)
-            );
-        }
-
-        // Function to handle scroll event
-        function handleScroll() {
-            var events = document.querySelectorAll('.event');
-            events.forEach(function(event) {
-                if (isElementInViewport(event)) {
-                    event.classList.add('visible');
-                    var img = even.querySelectorAll('img')[0];
-                } else {
-                    event.classList.remove('visible'); // Remove the 'visible' class if the event is not in the viewport
-                }
-            });
-        }
-
-        // Attach scroll event listener
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('wheel', function(e) {
-            window.scrollBy(e.deltaY, -e.deltaX, {behavior: 'smooth'});
-        }, {passive: false});
+    <script src = "/script.js">
+        
     </script>
 </body>
 </html>

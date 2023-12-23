@@ -126,15 +126,15 @@ const projects = [
         image: "public/imgs/multisnake-v2.png",
         time: "Dec 15, 2023",
         tools: ['<i class="fa-brands fa-node-js"></i>','<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Express","Socket.io",'<i class="fa-brands fa-aws"></i>',"Sqlite"]
-    },
-    {
-        name: "MultiSnake Tournaments",
-        des: "MultiSnake Tournaments.... win money by playing multisnake",
-        link: "https://tournament.multisnake.xyz/",
-        image: "public/imgs/multisnake-tournaments.png",
-        time: "Dec 15, 2023",
-        tools: ['<i class="fa-brands fa-node-js"></i>','<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Express","Socket.io","<i class='fa-brands fa-aws'></i>","Sqlite", "Supabase", '<i class="fa-brands fa-stripe"></i>']
-    }
+    }//,
+    // {
+    //     name: "MultiSnake Tournaments",
+    //     des: "MultiSnake Tournaments.... win money by playing multisnake",
+    //     link: "https://tournament.multisnake.xyz/",
+    //     image: "public/imgs/multisnake-tournaments.png",
+    //     time: "Dec 15, 2023",
+    //     tools: ['<i class="fa-brands fa-node-js"></i>','<i class="fa-brands fa-html5"></i>','<i class="fa-brands fa-css3"></i>','<i class="fa-brands fa-square-js"></i>',"Express","Socket.io","<i class='fa-brands fa-aws'></i>","Sqlite", "Supabase", '<i class="fa-brands fa-stripe"></i>']
+    // }
 
 ]
 

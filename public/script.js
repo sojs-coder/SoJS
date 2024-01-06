@@ -65,7 +65,7 @@ function DeltaTimer(render, interval) {
             key.start = timer.start();
         }
     }
-})(600);
+})(500);
 
 const projects = [
     {
